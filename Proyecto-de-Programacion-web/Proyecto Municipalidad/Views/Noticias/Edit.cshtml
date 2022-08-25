@@ -1,0 +1,45 @@
+﻿@model Proyecto_Municipalidad.Models.Noticia
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Noticia</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="noticaTitulo" class="control-label"></label>
+                <input asp-for="noticaTitulo" class="form-control" />
+                <span asp-validation-for="noticaTitulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cuerpoNoticia" class="control-label"></label>
+                <input asp-for="cuerpoNoticia" class="form-control" />
+                <span asp-validation-for="cuerpoNoticia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="autorNoticia" class="control-label"></label>
+                <input asp-for="autorNoticia" class="form-control" />
+                <span asp-validation-for="autorNoticia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -3,14 +3,16 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Proyecto_Municipalidad.Models;
 
 namespace Proyecto_Municipalidad.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContex : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ApplicationDbContex(DbContextOptions<ApplicationDbContex> options)
             : base(options)
         {
         }
+        public DbSet<Proyecto_Municipalidad.Models.Noticia> Noticia { get; set; }
     }
 }
