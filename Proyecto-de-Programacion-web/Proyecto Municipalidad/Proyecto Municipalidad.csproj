@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>aspnet-Proyecto_Municipalidad-3C05A7E9-10EB-4688-8DB3-8D068073CAF2</UserSecretsId>
+    <RootNamespace>Proyecto_Municipalidad</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.16" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.16" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.16" />
+  </ItemGroup>
+
+</Project>
