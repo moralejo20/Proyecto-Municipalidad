@@ -14,5 +14,6 @@ namespace Proyecto_Municipalidad.Data
         {
         }
         public DbSet<Proyecto_Municipalidad.Models.Noticia> Noticia { get; set; }
+        public DbSet<Proyecto_Municipalidad.Models.Evento> Evento { get; set; }
     }
 }

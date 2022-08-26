@@ -11,7 +11,8 @@ namespace Proyecto_Municipalidad.Models
           : base(options) { }
 
         public DbSet<Noticia> Noticia { get; set; }
-       // public DbSet</**/>  { get; set; }
+        public DbSet<Evento> Evento{ get; set; }
+        // public DbSet</**/>  { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Noticia>().ToTable("Equipo");
