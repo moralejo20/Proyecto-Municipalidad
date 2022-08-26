@@ -12,9 +12,9 @@ namespace Proyecto_Municipalidad.Controllers
 {
     public class NoticiasController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContex _context;
 
-        public NoticiasController(ApplicationDbContext context)
+        public NoticiasController(ApplicationDbContex context)
         {
             _context = context;
         }
