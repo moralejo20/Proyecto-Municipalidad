@@ -7,7 +7,7 @@ namespace Proyecto_Municipalidad.Models
 
     {
         [Key]
-        public int id { set; get; }
+        public int idNoticia { set; get; }
         [Required]
         [StringLength(50)]
         public string noticaTitulo { set; get; }

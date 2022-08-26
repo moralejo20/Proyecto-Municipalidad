@@ -10,22 +10,22 @@ using Proyecto_Municipalidad.Models;
 
 namespace Proyecto_Municipalidad.Controllers
 {
-    public class NoticiasController : Controller
+    public class EventoesController : Controller
     {
         private readonly ApplicationDbContex _context;
 
-        public NoticiasController(ApplicationDbContex context)
+        public EventoesController(ApplicationDbContex context)
         {
             _context = context;
         }
 
-        // GET: Noticias
+        // GET: Eventoes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Noticia.ToListAsync());
+            return View(await _context.Evento.ToListAsync());
         }
 
-        // GET: Noticias/Details/5
+        // GET: Eventoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace Proyecto_Municipalidad.Controllers
                 return NotFound();
             }
 
-            var noticia = await _context.Noticia
-                .FirstOrDefaultAsync(m => m.idNoticia == id);
-            if (noticia == null)
+            var evento = await _context.Evento
+                .FirstOrDefaultAsync(m => m.idEvento == id);
+            if (evento == null)
             {
                 return NotFound();
             }
 
-            return View(noticia);
+            return View(evento);
         }
 
-        // GET: Noticias/Create
+        // GET: Eventoes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Noticias/Create
+        // POST: Eventoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,noticaTitulo,cuerpoNoticia,autorNoticia")] Noticia noticia)
+        public async Task<IActionResult> Create([Bind("idEvento,eventoTitulo,cuerpoevento,autorEvento")] Evento evento)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(noticia);
+                _context.Add(evento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(noticia);
+            return View(evento);
         }
 
-        // GET: Noticias/Edit/5
+        // GET: Eventoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace Proyecto_Municipalidad.Controllers
                 return NotFound();
             }
 
-            var noticia = await _context.Noticia.FindAsync(id);
-            if (noticia == null)
+            var evento = await _context.Evento.FindAsync(id);
+            if (evento == null)
             {
                 return NotFound();
             }
-            return View(noticia);
+            return View(evento);
         }
 
-        // POST: Noticias/Edit/5
+        // POST: Eventoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,noticaTitulo,cuerpoNoticia,autorNoticia")] Noticia noticia)
+        public async Task<IActionResult> Edit(int id, [Bind("idEvento,eventoTitulo,cuerpoevento,autorEvento")] Evento evento)
         {
-            if (id != noticia.idNoticia)
+            if (id != evento.idEvento)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace Proyecto_Municipalidad.Controllers
             {
                 try
                 {
-                    _context.Update(noticia);
+                    _context.Update(evento);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NoticiaExists(noticia.idNoticia))
+                    if (!EventoExists(evento.idEvento))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace Proyecto_Municipalidad.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(noticia);
+            return View(evento);
         }
 
-        // GET: Noticias/Delete/5
+        // GET: Eventoes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace Proyecto_Municipalidad.Controllers
                 return NotFound();
             }
 
-            var noticia = await _context.Noticia
-                .FirstOrDefaultAsync(m => m.idNoticia == id);
-            if (noticia == null)
+            var evento = await _context.Evento
+                .FirstOrDefaultAsync(m => m.idEvento == id);
+            if (evento == null)
             {
                 return NotFound();
             }
 
-            return View(noticia);
+            return View(evento);
         }
 
-        // POST: Noticias/Delete/5
+        // POST: Eventoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var noticia = await _context.Noticia.FindAsync(id);
-            _context.Noticia.Remove(noticia);
+            var evento = await _context.Evento.FindAsync(id);
+            _context.Evento.Remove(evento);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool NoticiaExists(int id)
+        private bool EventoExists(int id)
         {
-            return _context.Noticia.Any(e => e.idNoticia == id);
+            return _context.Evento.Any(e => e.idEvento == id);
         }
     }
 }
